@@ -1,8 +1,80 @@
-#big-black-box {
-    background-color: black;
-  
-    font-size: 2vh;
-    color: cornsilk;
-    height: 100vh;
+body, html {
+    background-color: rgb(162, 93, 228) ;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+h1{
     text-align: center;
+    font-size: 4rem;
+    padding: 1rem;
+    font-family: cursive;
+
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.container-2 .container-3{
+    margin-top: 5rem;
+}
+
+.card {
+    border-radius: 1.5rem;
+    border: .5rem solid gold;
+    background-color: black;
+    width: 21vw;
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column; /* Stacks image and text vertically */
+    align-items: center; /* Centers items horizontally */
+    text-align: center; /* Centers text */
+    box-shadow: .4rem .4rem .4rem .4rem silver;
+    box-sizing: content-box;
+}
+.img{
+    height: 80%;
+    width: 80%;
+    background-color: black;
+    background-clip: padding-box;
+    border: .1rem solid red;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+@media (max-width: 1200px) {
+    font-size: 2.5rem;
+    .card{
+        width: 21%;
+    }
+}
+@media (max-width: 1024px) {
+    font-size: 2rem;
+    .container {
+        flex-direction: column;
+    }
+    .card {
+        width: 20%;
+    }
   }
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    .container {
+        flex-direction: column;
+    }
+    .card {
+        width: 45%;
+    }
+}
+@media (max-width: 480px) {
+        font-size: 1rem;
+        .container {
+            flex-direction: column;
+        }
+        .card {
+            width: 38%;
+        }
+}
