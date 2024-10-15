@@ -12,7 +12,7 @@ h1{
     font-family: cursive;
 
 }
-.bar{
+.bars{
     display: flex;
     flex-direction: column;
     justify-content: space-around;

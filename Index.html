@@ -6,15 +6,27 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
     </style>
-    <title>LeCardArchives</title>
+    <title>LeCardCreator</title>
 </head>
 <body>
-    <h1>LeCardArchives</h1>
-    <div class="bar">
-        <form action="search">
-            <input type="Enter text" />
-            <button id="btn" type="click">click me</button>
+    <h1>LeCardCreator</h1>
+    <div class="bars">
+        <form class="search" id="card-name">
+            <input type="text" class="description-input" id="inputName" placeholder="Enter Text"/>
         </form>
+        <form class="search" id="card-color">
+            <input type="text" class="description-input" id="inputColor" placeholder="Enter Text"/>
+        </form>
+        <form class="search" id="card-pic">
+            <input type="text" class="description-input" id="inputPic" placeholder="Enter Text"/>
+        </form>
+        <form id="submit">
+            <button class="btn" type="submit">Create Card</button>
+        </form>
+        
+    </div>
+    <div id="cardContainer" class="card-container">
+
     </div>
     
     <script src="main.js" ></script>
