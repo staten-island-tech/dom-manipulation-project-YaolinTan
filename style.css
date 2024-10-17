@@ -19,13 +19,21 @@ h1{
     flex-wrap: wrap;
     align-items: center;
 }
-.container{
+#search{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.description-input{
+    margin: .2rem;
+}
+.card-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-}
-.container-2 .container-3{
     margin-top: 5rem;
 }
 
