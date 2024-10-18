@@ -29,12 +29,13 @@ h1{
 .description-input{
     margin: .2rem;
 }
+
 .card-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .card {

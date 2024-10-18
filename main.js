@@ -1,4 +1,5 @@
 console.log("hello world");
+
 const DOMSelectors = {
   header: document.querySelector("h1"),
   //button: document.querySelector(".btn"),
@@ -9,10 +10,11 @@ const DOMSelectors = {
   colorInput: document.querySelector("#inputColor"),
   picInput: document.querySelector("#inputPic"),
   submit: document.querySelector("#submit"),
+  remove: document.querySelector("#remove"),
 };
 
 DOMSelectors.submit.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault();
 
   const cardText = DOMSelectors.nameInput.value;
   const cardColor = DOMSelectors.colorInput.value;
@@ -20,14 +22,12 @@ DOMSelectors.submit.addEventListener("submit", function (event) {
 
   const card = document.createElement("div");
   card.className = "card";
-  card.textContent = cardText; // Set the card text
+  card.textContent = cardText;
 
-  // Optionally set the background color
   if (cardColor) {
     card.style.backgroundColor = cardColor;
   }
 
-  // Optionally add an image if provided
   if (cardPic) {
     const img = document.createElement("img");
     img.src = cardPic;
@@ -35,26 +35,33 @@ DOMSelectors.submit.addEventListener("submit", function (event) {
     card.appendChild(img);
   }
 
-  // Append the card to the container
-  const cards = DOMSelectors.cardContainer.getElementsByClassName("card");
-  function countCards() {
-    // Get all child elements that have the class "card"
-    // Return the number of cards
-    return cards.length;
+  const totalCards = document.querySelectorAll(".card-container .card").length;
+
+  if (totalCards < 4) {
+    document.getElementById("cardContainer1").appendChild(card);
+  } else if (totalCards < 8) {
+    document.getElementById("cardContainer2").appendChild(card);
+  } else if (totalCards < 12) {
+    document.getElementById("cardContainer3").appendChild(card);
+  } else if (totalCards < 16) {
+    document.getElementById("cardContainer4").appendChild(card);
   }
 
   // Example usage
-  const numberOfCards = countCards();
-  console.log("Number of cards:", numberOfCards);
-  if (cards.length < 4) {
-    document.getElementById("cardContainer1").appendChild(card);
-  }
-  if (4 < cards.length < 8) {
-    document.getElementById("cardContainer2").appendChild(card);
-  }
+  console.log("Number of cards:", totalCards + 1);
 
   // Clear the input fields
   DOMSelectors.nameInput.value = "";
   DOMSelectors.colorInput.value = "";
   DOMSelectors.picInput.value = "";
+});
+
+DOMSelectors.remove.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const cards = document.querySelectorAll(".card-container .card");
+  if (cards.length > 0) {
+    const lastCard = cards[cards.length - 1];
+    lastCard.remove();
+  }
 });
