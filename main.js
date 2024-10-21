@@ -25,8 +25,6 @@ function injectCard(cardObject) {
 
   if (cardObject.pic) {
     const img = document.createElement("img");
-    img.src = cardObject.pic;
-    img.alt = cardObject.text;
     card.appendChild(img);
   }
 
