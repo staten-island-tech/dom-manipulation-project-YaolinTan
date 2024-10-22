@@ -34,7 +34,7 @@ function injectCard(cardObject) {
     cardContainer.insertAdjacentHTML(
       "beforeend",
       `<div class="card" style="background-color:${cardObject.color};">
-        ${cardObject.text}
+         <h2 class="card-header">${cardObject.text}</h2>
         ${
           cardObject.pic
             ? `<img src="${cardObject.pic}" alt="${cardObject.text}"/>`
