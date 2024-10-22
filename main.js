@@ -32,7 +32,7 @@ function injectCard(cardObject) {
 
   if (cardContainer) {
     cardContainer.insertAdjacentHTML(
-      "afterbegin",
+      "beforeend",
       `<div class="card" style="background-color:${cardObject.color};">
         ${cardObject.text}
         ${
