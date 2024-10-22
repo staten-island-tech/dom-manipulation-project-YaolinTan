@@ -1,3 +1,5 @@
+console.log("Hello World");
+
 const DOMSelectors = {
   nameInput: document.querySelector("#inputName"),
   colorInput: document.querySelector("#inputColor"),
@@ -15,31 +17,31 @@ function createCardObject() {
 }
 
 function injectCard(cardObject) {
-  const card = document.createElement("div");
-  card.className = "card";
-
-  card.textContent = cardObject.text;
-  if (cardObject.color) {
-    card.style.backgroundColor = cardObject.color;
-  }
-
-  if (cardObject.pic) {
-    const img = document.createElement("img");
-    img.className = "img";
-    img.src = cardObject.pic;
-    card.appendChild(img);
-  }
-
+  let cardContainer;
   const allCards = document.querySelectorAll(".card-container .card");
   const totalCards = allCards.length;
   if (totalCards < 4) {
-    document.getElementById("cardContainer1").appendChild(card);
+    cardContainer = document.getElementById("cardContainer1");
   } else if (totalCards < 8) {
-    document.getElementById("cardContainer2").appendChild(card);
+    cardContainer = document.getElementById("cardContainer2");
   } else if (totalCards < 12) {
-    document.getElementById("cardContainer3").appendChild(card);
+    cardContainer = document.getElementById("cardContainer3");
   } else if (totalCards < 16) {
-    document.getElementById("cardContainer4").appendChild(card);
+    cardContainer = document.getElementById("cardContainer4");
+  }
+
+  if (cardContainer) {
+    cardContainer.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="card" style="background-color:${cardObject.color};">
+        ${cardObject.text}
+        ${
+          cardObject.pic
+            ? `<img src="${cardObject.pic}" alt="${cardObject.text}"/>`
+            : ""
+        }
+      </div>`
+    );
   }
 
   console.log("Number of cards:", totalCards + 1);
@@ -51,7 +53,7 @@ function clearInputFields() {
   DOMSelectors.picInput.value = "";
 }
 
-DOMSelectors.submit.addEventListener("submit", function (event) {
+DOMSelectors.submit.addEventListener("click", function (event) {
   event.preventDefault();
   const cardObject = createCardObject();
   injectCard(cardObject);
